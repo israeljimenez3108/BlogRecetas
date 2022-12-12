@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h1>Mensaje de {{message.sender}}</h1>
+
+<p>{{message.content}}</p>
+<a href="{%url 'Delete_message' message.id%}" class="btn btn-danger">Borrar</a>
+<a href="{% url 'Messages' %}" class="btn btn-link">Regresar</a>
+
+{% endblock main_content %}

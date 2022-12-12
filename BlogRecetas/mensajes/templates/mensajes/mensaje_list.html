@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+
+{% block main_content %}
+
+
+<h1>Todos los mensajes</h1>
+                
+
+<div>
+{% if object_list %}
+                
+{% for message in object_list %}
+    <div>
+        <a href="{%url 'Message_detail' message.id%}">
+            <p>{{message.title}}</p>
+        </a>
+            <p>Mensaje Enviado por {{message.sender}} el {{message.date}}</p>
+            <a href="{%url 'Message_detail' message.id%}">Leer</a>
+    </div>
+{% endfor %}
+    <div>
+        <div>
+            <a href="{% url 'New_message' %}" class="btn btn-success">Nuevo mensaje</a>
+            <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+        </div>
+    </div>
+
+{% else %}
+    <h2>No hay mensajes aún</h2>
+    <a href="{% url 'New_message' %}" class="btn btn-success">Nuevo mensaje</a>
+    <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+{% endif %}
+            
+</div>
+ 
+{% endblock main_content %}

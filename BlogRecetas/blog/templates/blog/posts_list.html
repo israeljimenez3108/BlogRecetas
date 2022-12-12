@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+
+{% if object_list %}
+                
+    {% for posts in object_list %}
+        <div>
+            <a href="{%url 'Detail' posts.id%}">
+                <h2>{{posts.titulo}}</h2>
+                <h4>{{posts.subtitulo}}</h4>
+            </a>
+            <p class="post-meta">Creado por {{posts.autor}} en {{posts.fecha}}</p>
+            <a href="{%url 'Detail' posts.id%}">Leer más</a>
+        </div>
+    {% endfor %}
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'Create' %}" class="btn btn-success">Nuevo post</a>
+        <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+    {% else %}
+        <p>
+        Para crear un post,
+        <a href="{% url 'login' %}">inicia sesión</a>
+        </p>
+        <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+    {% endif %}
+
+{% else %}
+
+    <h2>No existen posts aún</h2>
+    {% if request.user.is_authenticated %} 
+    <p><a href="{% url 'Create' %}">Agregar un post</a></p>
+    <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+    {% else %}
+    <p>
+        Para crear un post,
+        <a href="{% url 'login' %}">inicia sesión</a>
+    </p>
+    <p><a href="{% url 'Home' %}">Volver al inicio</a></p>
+    {% endif %}
+</div>
+</div>
+
+{% endif %}
+
+{% endblock main_content %}

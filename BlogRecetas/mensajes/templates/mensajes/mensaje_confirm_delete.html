@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block main_content %}
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        ¿Estás seguro de que deseas borrar el mensaje {{object.title}}? 
+        <div>
+            <button type="submit" class="btn btn-primary">
+                <span></span>Confirmar
+            </button>
+            <a href="{% url 'Posts' %}" class="btn btn-default">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock main_content %}

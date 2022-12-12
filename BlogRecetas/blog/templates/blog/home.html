@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+{% for post in posts %}
+                          
+    <h2>{{post.title}}</h2>
+    <h3>{{post.subtitle}}</h3>
+    <p>Creado por {{post.autor}} el {{post.fecha}}</p>
+            
+{% endfor %}
+
+{% endblock main_content %}

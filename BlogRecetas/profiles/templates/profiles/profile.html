@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h1>Perfil de {{request.user.username}}</h1>
+<img src="{{image_url}}" alt="Imagen" width="25%">
+
+{% if request.user.is_superuser %}
+    <a href="{% url 'upload_avatar' %}" >Cargar avatar</a>
+{% endif %}
+
+{% endblock main_content %}

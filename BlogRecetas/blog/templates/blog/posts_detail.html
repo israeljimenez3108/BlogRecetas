@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<h1>{{posts.titulo}}</h1>
+<h2 class="subheading">{{posts.subtitulo}}</h2>
+<span class="meta">
+    Creado por {{posts.autor}} en {{posts.fecha}}
+</span>
+
+<p>{{posts.body}}</p>
+{% if request.user.is_authenticated %}
+    <a href="{%url 'Update' posts.id%}" class="btn btn-success">Editar</a>
+    <a href="{%url 'Delete' posts.id%}" class="btn btn-danger">Borrar</a>
+    <a href="{% url 'Posts' %}" class="btn btn-link">Regresar</a>
+{% else %}
+    <a href="{% url 'Posts' %}" class="btn btn-link">Regresar</a>
+{% endif %}
+
+{% endblock main_content %}

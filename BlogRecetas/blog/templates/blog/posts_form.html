@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block main_content %}
+
+<form method="post">
+    {% csrf_token %}
+
+    {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+    <div>
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div>
+        <button type="submit" class="btn btn-success">
+            <span ></span>Enviar
+        </button>
+        <a href="{% url 'Posts' %}" class="btn btn-default">Cancelar</a>
+    </div>
+</form>
+
+
+{% endblock main_content %}
