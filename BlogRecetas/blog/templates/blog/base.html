@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     {% load static %}
-    
-    <title>{{title}}</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no" />
-    <link rel="icon" href="{% static blog/images/favicon.ico %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static blog/css/grid.css %}">
-    <link rel="stylesheet" href="{% static blog/css/style.css %}">
-    <link rel="stylesheet" href="{% static blog/css/camera.css %}">
-    <link rel="stylesheet" href="{% static blog/css/touchTouch.css %}">
+    <link rel="icon" href="{% static 'blog/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'blog/css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/camera.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/touchTouch.css' %}">
 
-    <script src="{% static blog/js/jquery.js %}"></script>
-    <script src="{% static blog/js/jquery-migrate-1.2.1.js %}"></script>
-    <script src="{% static blog/js/jquery.equalheights.js %}"></script>
+    <script src="{% static 'blog/js/jquery.js' %}"></script>
+    <script src="{% static 'blog/js/jquery-migrate-1.2.1.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.equalheights.js' %}"></script>
     <!--[if (gt IE 9)|!(IE)]><!-->
-    <script src="{% static blog/js/jquery.mobile.customized.min.js %}"></script>
-    <script src="{% static blog/js/wow/wow.js %}"></script>
+    <script src="{% static 'blog/js/jquery.mobile.customized.min.js' %}"></script>
+    <script src="{% static 'blog/js/wow/wow.js' %}"></script>
     <script>
         $(document).ready(function () {
             if ($('html').hasClass('desktop')) {
@@ -26,9 +25,9 @@
         });
     </script>
     <!--<![endif]-->
-    <script src="{% static blog/js/camera.js %}"></script>
-    <script src="{% static blog/js/touchTouch.js %}"></script>
-    <script src="{% static blog/js/isotope.min.js %}"></script>
+    <script src="{% static 'blog/js/camera.js' %}"></script>
+    <script src="{% static 'blog/js/touchTouch.js' %}"></script>
+    <script src="{% static 'blog/js/isotope.min.js' %}"></script>
 
     <!--[if lt IE 9]>
     <html class="lt-ie9">
@@ -70,7 +69,7 @@
                             <li><a href="#">Crear una cuenta</a></li>
                         </ul>
 
-                        
+                       
 
                         <ul class="socials">
                             <li><a href="#" class="fa-facebook">Facebook</a></li>
@@ -88,7 +87,7 @@
                         <div class="grid_12">
                             <div class="brand">
                                 <h1>
-                                    <a href="./">Recetas de Cocina / Dani - Agus - Isra</a>
+                                    <a href="./">Recetas de Cocina</a>
                                 </h1>
                             </div>
 
@@ -98,11 +97,11 @@
                                         <a href="./">Inicio</a>
                                     </li>
                                     <li>
-                                        <a href="index-1.html">Recetas</a>
+                                        <a href="index-1.html">Recipes</a>
                                         <ul>
-                                            <li><a href="#">Testimonios</a></li>
+                                            <li><a href="#">Testimonials</a></li>
                                             <li>
-                                                <a href="#">Historia</a>
+                                                <a href="#">History</a>
                                                 <ul>
                                                     <li><a href="#">Lorem</a></li>
                                                     <li><a href="#">Dolor</a></li>
@@ -110,18 +109,18 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="#">Clientes</a>
+                                                <a href="#">Clients</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="index-2.html">Galería</a>
+                                        <a href="index-2.html">Gallery</a>
                                     </li>
                                     <li>
-                                        <a href="index-3.html">Nosotros</a>
+                                        <a href="index-3.html">About</a>
                                     </li>
                                     <li>
-                                        <a href="index-4.html">Contacto</a>
+                                        <a href="index-4.html">Contacts</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -135,26 +134,34 @@
         =========================================================-->
         <section id="content" class="content">
             <div id="camera" class="camera-wrap">
-                <div data-src="{% static blog/images/index_slide01.jpg %}"></div>
-                <div data-src="{% static blog/images/index_slide02.jpg %}"></div>
-                <div data-src="{% static blog/images/index_slide03.jpg %}"></div>
+                <div data-src="{% static 'blog/images/index_slide01.jpg' %}"></div>
+                <div data-src="{% static 'blog/images/index_slide02.jpg' %}"></div>
+                <div data-src="{% static 'blog/images/index_slide03.jpg' %}"></div>
             </div>
 
             <div class="container well__ins1">
                 
                 <div id="isotope" class="isotope product-block row wow fadeIn">
-                    
-					<!-- Main Content-->
-        
-                    {% if errors %}
-                        {% for error in errors %}
-                            {{error}}
-                        {% endfor %}
-                    {% endif %}
-        
-                    {% block main_content %} {% endblock main_content %}
+                    <div class="item grid_6 product product__skin1 product-dinner-party product-snacks product-quick-and-easy product-international">
+                        <a class="lazy-img thumbnail" style="padding-bottom: 98.94552%" href="{% static 'blog/images/index_img01big.jpg' %}">
+                            <img data-src="{% static 'blog/images/index_img01.jpg' %}" src="#" alt="" />
+                            <noscript><img src="{% static 'blog/images/index_img01.jpg' %}" alt="" /></noscript>
+                            <div class="thumbnail_overlay fa"></div>
+                        </a>
+                        <div class="product_cnt">
+                            <h3 class="product_title"><a href="#">Fall Favourites </a></h3>
+                            <div class="product_description">
+                                <a href="#" class="btn">View More</a>
+                                <p>
+                                    Nam elit agna,endrerit sit amet
+                                </p>
+                            </div>                             
+                        </div>
+                    </div>
                     
                 </div>
+
+                
 
                 
             </div>
@@ -170,7 +177,7 @@
             <div class="container">
                 <div class="row">
                     <div class="grid_12 wow fadeInUp">
-                        Recetas de cocina © <span id="copyright-year"></span> Dani, Agus, Isra | <a href="index-5.html">Privacy Policy</a>
+                        Cooking recipes © <span id="copyright-year"></span> All Rights Reserved | <a href="index-5.html">Privacy Policy</a>
                         <!-- {%FOOTER_LINK} -->
                     </div>
                 </div>
@@ -178,6 +185,6 @@
         </footer>
     </div>
 
-    <script src="{% static blog/js/script.js %}"></script>
+    <script src="{% static 'blog/js/script.js' %}"></script>
 </body>
 </html>
