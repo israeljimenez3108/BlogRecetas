@@ -30,7 +30,7 @@ def register_request(request):
     
     else:
         form = UserRegistrationForm()
-        return render(request, 'accounts/register.html', {"form": form})
+        return render(request, 'profiles/register.html', {"form": form})
 
 def login_request(request):
 
@@ -55,7 +55,7 @@ def login_request(request):
 
     else:
         form = AuthenticationForm()
-        return render(request, 'accounts/login.html', {"form": form})
+        return render(request, 'profiles/login.html', {"form": form})
 
 @login_required()
 def update_user(request):
@@ -75,11 +75,11 @@ def update_user(request):
             return redirect("Home")
         else:
             form = UserEditForm(initial={"email":user.email})
-            return render(request, 'accounts/update_user.html', {"title": "Editar usuario", "message": "Editar usuario", "form": form, "errors": ["Datos inválidos"]})
+            return render(request, 'profiles/update_user.html', {"title": "Editar usuario", "message": "Editar usuario", "form": form, "errors": ["Datos inválidos"]})
     
     else:
         form = UserEditForm(initial={"email":user.email})
-        return render(request, 'accounts/update_user.html', {"title": "Editar usuario", "message": "Editar usuario", "form": form})
+        return render(request, 'profiles/update_user.html', {"title": "Editar usuario", "message": "Editar usuario", "form": form})
 
 @login_required()
 def profile(request):
@@ -88,9 +88,9 @@ def profile(request):
 
     if len(avatar) > 0:
         imagen = avatar[0].imagen.url
-        return render(request, 'accounts/profile.html', {"image_url": imagen})
+        return render(request, 'profiles/profile.html', {"image_url": imagen})
 
-    return render (request, 'accounts/profile.html')
+    return render (request, 'profiles/profile.html')
 
 @login_required()
 def upload_avatar(request):   
@@ -119,5 +119,5 @@ def upload_avatar(request):
     else:
 
         formulario = AvatarForm()
-        return render(request, "accounts/upload_avatar.html", {"title": "Cargar avatar", "message": "Cargar avatar","form": formulario})
+        return render(request, "profiles/upload_avatar.html", {"title": "Cargar avatar", "message": "Cargar avatar","form": formulario})
 

@@ -60,13 +60,13 @@
         <!--========================================================
                                   HEADER
         =========================================================-->
-        <header id="header" class="header">
-            <div class="container">
+        <header id="header" class="header" >
+            <div class="container" >
                 <div class="row">
                     <div class="grid_12">
                         <ul class="inline-list">
-                            <li><a href="#">Ingresar</a></li>
-                            <li><a href="#">Crear una cuenta</a></li>
+                            <li><a href="{% url 'login' %}">Ingresar</a></li>
+                            <li><a href="{% url 'register' %}">Crear una cuenta</a></li>
                         </ul>
 
                        
@@ -91,40 +91,12 @@
                                 </h1>
                             </div>
 
-                            <nav class="nav">
-                                <ul class="sf-menu">
-                                    <li class="active">
-                                        <a href="./">Inicio</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-1.html">Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Testimonials</a></li>
-                                            <li>
-                                                <a href="#">History</a>
-                                                <ul>
-                                                    <li><a href="#">Lorem</a></li>
-                                                    <li><a href="#">Dolor</a></li>
-                                                    <li><a href="#">Sit amet</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Clients</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="index-2.html">Gallery</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-3.html">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-4.html">Contacts</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            {% include 'blog/aditionals/navbar.html' %}
                         </div>
+                        <!-- Page Header-->
+        
+        
+
                     </div>
                 </div>
             </div>
@@ -133,28 +105,33 @@
                                   CONTENT
         =========================================================-->
         <section id="content" class="content">
-            <div id="camera" class="camera-wrap">
-                <div data-src="{% static 'blog/images/index_slide01.jpg' %}"></div>
-                <div data-src="{% static 'blog/images/index_slide02.jpg' %}"></div>
-                <div data-src="{% static 'blog/images/index_slide03.jpg' %}"></div>
-            </div>
 
-            <div class="container well__ins1">
+            <div style="background-image: url({% static 'blog/images/index_slide01.jpg' %});">
+                <img src="{% static 'blog/images/index_slide01.jpg' %}" style="visibility: hidden;" />
+               </div>
+            
+            <div class="container well__ins1" >
                 
                 <div id="isotope" class="isotope product-block row wow fadeIn">
                     <div class="item grid_6 product product__skin1 product-dinner-party product-snacks product-quick-and-easy product-international">
-                        <a class="lazy-img thumbnail" style="padding-bottom: 98.94552%" href="{% static 'blog/images/index_img01big.jpg' %}">
-                            <img data-src="{% static 'blog/images/index_img01.jpg' %}" src="#" alt="" />
-                            <noscript><img src="{% static 'blog/images/index_img01.jpg' %}" alt="" /></noscript>
-                            <div class="thumbnail_overlay fa"></div>
-                        </a>
+                        
                         <div class="product_cnt">
-                            <h3 class="product_title"><a href="#">Fall Favourites </a></h3>
+                            <h3 class="product_title">
+                                <!-- Main Content-->
+        
+                                {% if errors %}
+                                    {% for error in errors %}
+                                        {{error}}
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% block main_content %} 
+                                
+                                {% endblock main_content %}
+
+                            </h3>
                             <div class="product_description">
-                                <a href="#" class="btn">View More</a>
-                                <p>
-                                    Nam elit agna,endrerit sit amet
-                                </p>
+                                
                             </div>                             
                         </div>
                     </div>
@@ -177,7 +154,7 @@
             <div class="container">
                 <div class="row">
                     <div class="grid_12 wow fadeInUp">
-                        Cooking recipes © <span id="copyright-year"></span> All Rights Reserved | <a href="index-5.html">Privacy Policy</a>
+                        Recetas de Cocina © <span id="copyright-year"></span> Israel Jimenez | Agustin | Daniel
                         <!-- {%FOOTER_LINK} -->
                     </div>
                 </div>

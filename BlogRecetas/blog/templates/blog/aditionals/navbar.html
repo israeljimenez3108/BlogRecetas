@@ -1,0 +1,31 @@
+<nav class="nav">
+    <ul class="sf-menu">
+        <li class="active">
+            <a href="{% url 'Home' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="{% url 'Posts' %}">Posts</a>
+        </li>
+        {% if not request.user.is_authenticated %}
+        <li>
+            <a href="{% url 'register' %}">Crear cuenta</a>
+        </li>
+        <li>
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url 'Messages' %}">Mensajes</a>
+        </li>
+        <li>
+            <a href="{% url 'About' %}">Nosotros</a>
+        </li>
+        <li>
+            <a href="{% url 'Profile' %}">{{request.user.username}}</a>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'mensajes',
-    'profiles'
+    'profiles',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
